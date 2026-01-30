@@ -7,7 +7,7 @@ def delivery_report(err, msg):
     if err is not None:
         print(f"Message delivery failed: {err}")
     else:
-        print(f"Message delivered {msg.value().decode('utf-8')}")
+        print(f"Message delivered {msg.value().decode('utf-8')} to {msg.topic()} [{msg.partition()}] at offset {msg.offset()}")
 order={'order_id': str(uui.uuid4()),'user':'tarik' ,'item': 'widget', 'quantity': 10}
 
 json.dumps(order).encode('utf-8')
